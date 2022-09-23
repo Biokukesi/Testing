@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class = "page">
        
         <div v-for="crud in crud" :key = "crud.id" class = "crud">
           <router-link :to = "{name:'manageCompany', params: {id: crud.id}}"> <h4>{{crud.id}}</h4></router-link>

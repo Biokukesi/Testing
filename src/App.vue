@@ -1,4 +1,5 @@
 <template>
+<div id = "app">
   <HobbitonView/>
   <div id = "nav">
     <router-link to = '/HomeView'>Home</router-link>
@@ -7,18 +8,20 @@
     <!-- <router-link to = '/PoliciesView'>Trans</router-link>    -->
   </div>
 
-  <div>
-    
-  </div>
-  <router-view/>
+  
+  <transition name = "router-anim" >
+     <router-view/>
+  </transition>
   <button @click = "back">Back</button>
 
   <button @click = "forward">Forward</button>
+</div>
 </template>
 
 
 <script>
-  
+
+
 import HobbitonView from "./components/HobbitonView.vue";
 
 
@@ -43,6 +46,7 @@ import HobbitonView from "./components/HobbitonView.vue";
 </script>
 
 <style>
+ 
 #app {
   align-items: center;
   justify-content: center;
@@ -73,6 +77,10 @@ import HobbitonView from "./components/HobbitonView.vue";
   background: green;  
   width: 200px;
 }
+#nav a.router-link-exact-active:hover{
+  color: white;
+  background: crimson;
+}
 img{
   height: 70px;
 }
@@ -90,6 +98,40 @@ button{
      padding: 10px;
      cursor: pointer;
      color: green;
+}
+.router-anim-enter-active{
+  animation: coming 1s;
+  animation-delay: .5s;
+  opacity: 0;
+}
+
+.router-anim-leave-active{
+  animation: going 1s;
+}
+
+@keyframes going{
+  from{
+    transform: translate(0);
+  }
+  to{
+    transform: translate(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes coming{
+  from{
+    transform: translate(-50px);
+    opacity: 0;
+  }
+  to{
+    transform: translate(0);
+    opacity: 1;
+  }
+}
+.page{
+  position: static;
+  width: inherit;
 }
 
 

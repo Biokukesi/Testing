@@ -1,6 +1,6 @@
 import { plugin, defaultConfig } from '@formkit/vue'
 <template>
-    <div>
+    <div class = "page">
         
     <loginForms/>
     </div>
